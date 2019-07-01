@@ -1,0 +1,34 @@
+{
+  "name": "@vicli/cli-plugin-babel",
+  "version": "0.0.3",
+  "description": "babel plugin for vicli-cli",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vuejs/vue-cli.git",
+    "directory": "packages/@vicli/cli-plugin-babel"
+  },
+  "keywords": [
+    "vue",
+    "cli",
+    "babel"
+  ],
+  "author": "yesixuan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vuejs/vue-cli/issues"
+  },
+  "homepage": "https://github.com/vuejs/vue-cli/tree/dev/packages/@vue/cli-plugin-babel#readme",
+  "dependencies": {
+    "@babel/core": "^7.0.0",
+    "@vue/babel-preset-app": "^3.8.0",
+    "@vue/cli-shared-utils": "^3.8.0",
+    "babel-loader": "^8.0.5",
+    "webpack": ">=4 < 4.29",
+    "babel-plugin-named-asset-import": "^0.3.2",
+    "babel-preset-react-app": "^8.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
