@@ -4,7 +4,7 @@ const {
   hasProjectPnpm,
   openBrowser,
   IpcMessenger
-} = require('@vue/cli-shared-utils')
+} = require('@vicli/cli-shared-utils')
 
 const defaults = {
   host: '0.0.0.0',

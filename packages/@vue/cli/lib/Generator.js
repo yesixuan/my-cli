@@ -6,7 +6,7 @@ const writeFileTree = require('./util/writeFileTree')
 const inferRootOptions = require('./util/inferRootOptions')
 const normalizeFilePaths = require('./util/normalizeFilePaths')
 const runCodemod = require('./util/runCodemod')
-const { toShortPluginId, matchesPluginId } = require('@vue/cli-shared-utils')
+const { toShortPluginId, matchesPluginId } = require('@vicli/cli-shared-utils')
 const ConfigTransform = require('./ConfigTransform')
 
 const logger = require('@vue/cli-shared-utils/lib/logger')

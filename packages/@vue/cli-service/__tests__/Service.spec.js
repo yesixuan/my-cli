@@ -6,7 +6,7 @@ const fs = require('fs')
 const path = require('path')
 const Service = require('../lib/Service')
 
-const { logs } = require('@vue/cli-shared-utils')
+const { logs } = require('@vicli/cli-shared-utils')
 
 const mockPkg = json => {
   fs.writeFileSync('/package.json', JSON.stringify(json, null, 2))
