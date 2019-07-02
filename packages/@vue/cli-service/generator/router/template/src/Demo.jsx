@@ -1,12 +1,11 @@
 import React from 'react'
-import './App.css'
 
-const App = () => (
+const Demo = () => (
   <div className="App">
     <header className="App-header">
-      <h2>App Component</h2>
+      <h3>Demo page</h3>
     </header>
   </div>
 )
 
-export default App
+export default Demo
