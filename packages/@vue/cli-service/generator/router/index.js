@@ -1,18 +1,6 @@
-const rootComponentWithRouter = `
-
-  (<BrowserRouter>
-    <Switch>
-      <Route path='/' exact component={App}/>
-      <Route path='/demo' component={Demo}/>
-      <Redirect to='/' />
-    </Switch>
-  </BrowserRouter>),
-  
-`
-
 module.exports = (api, options = {}) => {
-  api.injectImports(api.entryFile, `import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom'`)
-  api.injectImports(api.entryFile, `import Demo from './Demo.jsx'`)
+  // api.injectImports(api.entryFile, `import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom'`)
+  // api.injectImports(api.entryFile, `import Demo from './Demo.jsx'`)
   // api.injectRootOptions(api.entryFile, `router`)
   api.extendPackage({
     dependencies: {
@@ -25,18 +13,33 @@ module.exports = (api, options = {}) => {
     doesCompile: api.hasPlugin('babel') || api.hasPlugin('typescript')
   })
 
-  api.postProcessFiles(files => {
-    const appFile = files[`src/main.js`]
-    if (appFile) {
-      files[`src/main.js`] = appFile.replace(/<App \/>,/, rootComponentWithRouter)
-    }
-  })
-
   if (api.invoking) {
     api.postProcessFiles(files => {
-      const appFile = files[`src/main.js`]
+      const appFile = files[`src/App.jsx`]
       if (appFile) {
-        files[`src/main.js`] = appFile.replace(/<App \/>,/, rootComponentWithRouter)
+        files[`src/App.jsx`] = appFile.replace(/^import[^]+App/, `
+import React from 'react'
+import { BrowserRouter, Route, Redirect, Switch, Link } from 'react-router-dom'
+
+import Index from './views/Index.jsx'
+import Demo from './views/Demo.jsx'
+import './App.css'
+
+const App = () => <>
+	<BrowserRouter>
+		<Link to='/index'>Index</Link>
+		<br />
+		<Link to='/demo'>Demo</Link>
+    <Switch>
+      <Route path='/' exact component={Index}/>
+      <Route path='/demo' component={Demo}/>
+      <Redirect to='/' />
+    </Switch>
+  </BrowserRouter>
+</>
+
+export default App
+        `)
       }
     })
 

@@ -1,7 +1,12 @@
 module.exports = (api, options) => {
   api.render('./template', {
-    doesCompile: api.hasPlugin('babel') || api.hasPlugin('typescript')
+    doesCompile: api.hasPlugin('babel') || api.hasPlugin('typescript'),
+    options,
   })
+
+  console.log('**********************************************************')
+  console.log(JSON.stringify(options, null, '  '))
+  console.log('**********************************************************')
 
   api.extendPackage({
     scripts: {
