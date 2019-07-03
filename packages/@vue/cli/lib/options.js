@@ -1,9 +1,9 @@
 const fs = require('fs')
 const cloneDeep = require('lodash.clonedeep')
 const { getRcPath } = require('./util/rcPath')
-const { exit } = require('@vue/cli-shared-utils/lib/exit')
-const { error } = require('@vue/cli-shared-utils/lib/logger')
-const { createSchema, validate } = require('@vue/cli-shared-utils/lib/validate')
+const { exit } = require('@vicli/cli-shared-utils/lib/exit')
+const { error } = require('@vicli/cli-shared-utils/lib/logger')
+const { createSchema, validate } = require('@vicli/cli-shared-utils/lib/validate')
 
 const rcPath = exports.rcPath = getRcPath('.vuerc')
 

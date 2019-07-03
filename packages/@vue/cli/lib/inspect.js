@@ -7,9 +7,9 @@ module.exports = function inspect (paths, args) {
   const cwd = process.cwd()
   let servicePath
   try {
-    servicePath = resolve.sync('@vue/cli-service', { basedir: cwd })
+    servicePath = resolve.sync('@vicli/cli-service', { basedir: cwd })
   } catch (e) {
-    const { error } = require('@vue/cli-shared-utils')
+    const { error } = require('@vicli/cli-shared-utils')
     error(
       `Failed to locate @vue/cli-service.\n` +
       `Note that \`vue inspect\` is an alias of \`vue-cli-service inspect\`\n` +

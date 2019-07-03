@@ -7,7 +7,7 @@ const { isBinaryFileSync } = require('isbinaryfile')
 const mergeDeps = require('./util/mergeDeps')
 const stringifyJS = require('./util/stringifyJS')
 const ConfigTransform = require('./ConfigTransform')
-const { getPluginLink, toShortPluginId } = require('@vue/cli-shared-utils')
+const { getPluginLink, toShortPluginId } = require('@vicli/cli-shared-utils')
 
 const isString = val => typeof val === 'string'
 const isFunction = val => typeof val === 'function'
@@ -105,7 +105,7 @@ class GeneratorAPI {
       !options.file
     ) {
       if (hasReserved) {
-        const { warn } = require('@vue/cli-shared-utils')
+        const { warn } = require('@vicli/cli-shared-utils')
         warn(`Reserved config transform '${key}'`)
       }
       return

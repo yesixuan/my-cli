@@ -1,5 +1,5 @@
 const chalk = require('chalk')
-const { toShortPluginId } = require('@vue/cli-shared-utils')
+const { toShortPluginId } = require('@vicli/cli-shared-utils')
 
 exports.getFeatures = (preset) => {
   const features = []

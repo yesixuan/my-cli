@@ -38,7 +38,7 @@ const {
   stopSpinner,
   exit,
   loadModule
-} = require('@vue/cli-shared-utils')
+} = require('@vicli/cli-shared-utils')
 
 const isManualMode = answers => answers.preset === '__manual__'
 

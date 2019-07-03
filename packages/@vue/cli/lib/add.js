@@ -10,7 +10,7 @@ const {
   resolvePluginId,
   resolveModule,
   loadModule
-} = require('@vue/cli-shared-utils')
+} = require('@vicli/cli-shared-utils')
 
 async function add (pluginName, options = {}, context = process.cwd()) {
   // special internal "plugins"

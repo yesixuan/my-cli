@@ -3,7 +3,7 @@ jest.mock('fs')
 const fs = require('fs-extra')
 const path = require('path')
 const Generator = require('../lib/Generator')
-const { logs } = require('@vue/cli-shared-utils')
+const { logs } = require('@vicli/cli-shared-utils')
 const stringifyJS = require('../lib/util/stringifyJS')
 
 // prepare template fixtures

@@ -1,7 +1,7 @@
 // these prompts are used if the plugin is late-installed into an existing
 // project and invoked by `vue invoke`.
 
-const { chalk, hasGit } = require('@vue/cli-shared-utils')
+const { chalk, hasGit } = require('@vicli/cli-shared-utils')
 
 module.exports = [
   {

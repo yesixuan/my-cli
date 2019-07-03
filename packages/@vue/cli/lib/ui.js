@@ -1,4 +1,4 @@
-const { log, error, openBrowser } = require('@vue/cli-shared-utils')
+const { log, error, openBrowser } = require('@vicli/cli-shared-utils')
 const { portfinder, server } = require('@vue/cli-ui/server')
 const shortid = require('shortid')
 

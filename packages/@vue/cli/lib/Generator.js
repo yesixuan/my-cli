@@ -9,7 +9,7 @@ const runCodemod = require('./util/runCodemod')
 const { toShortPluginId, matchesPluginId } = require('@vicli/cli-shared-utils')
 const ConfigTransform = require('./ConfigTransform')
 
-const logger = require('@vue/cli-shared-utils/lib/logger')
+const logger = require('@vicli/cli-shared-utils/lib/logger')
 const logTypes = {
   log: logger.log,
   info: logger.info,
