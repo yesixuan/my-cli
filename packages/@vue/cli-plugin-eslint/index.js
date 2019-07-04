@@ -55,7 +55,9 @@ module.exports = (api, options) => {
               emitWarning: allWarnings,
               // only emit errors in production mode.
               emitError: allErrors,
-              eslintPath: resolveModule('eslint', cwd) || require.resolve('eslint'),
+              // 坑点： 修改后的 eslintPath 配置来自 vuc/cli 的 3.9.1 版本
+              eslintPath: path.dirname(resolveModule('eslint/package.json', cwd)),
+              // eslintPath: resolveModule('eslint', cwd) || require.resolve('eslint'),
               formatter:
                 loadModule('eslint/lib/formatters/codeframe', cwd, true) ||
                 require('eslint/lib/formatters/codeframe')

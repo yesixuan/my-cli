@@ -1,6 +1,6 @@
 {
   "name": "@vicli/cli-plugin-eslint",
-  "version": "0.0.7",
+  "version": "0.0.12",
   "description": "eslint plugin for vicli-cli",
   "main": "index.js",
   "repository": {

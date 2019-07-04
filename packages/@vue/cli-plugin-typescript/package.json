@@ -1,19 +1,17 @@
 {
-  "name": "@vue/cli-plugin-typescript",
-  "version": "3.8.1",
-  "description": "typescript plugin for vue-cli",
+  "name": "@vicli/cli-plugin-typescript",
+  "version": "0.0.0",
+  "description": "typescript plugin for vicli-cli",
   "main": "index.js",
   "repository": {
-    "type": "git",
-    "url": "git+https://github.com/vuejs/vue-cli.git",
-    "directory": "packages/@vue/cli-plugin-typescript"
+    "type": "git"
   },
   "keywords": [
-    "vue",
+    "vicli",
     "cli",
     "typescript"
   ],
-  "author": "Evan You",
+  "author": "Vci",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/vuejs/vue-cli/issues"
@@ -39,8 +37,5 @@
     "@types/chai": "^4.1.0",
     "@types/jest": "^23.1.4",
     "@types/mocha": "^5.2.6",
-    "typescript": "^3.4.3",
-    "vue-class-component": "^7.0.2",
-    "vue-property-decorator": "^8.1.0"
   }
 }

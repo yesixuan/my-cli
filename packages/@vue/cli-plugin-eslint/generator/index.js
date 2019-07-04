@@ -124,7 +124,7 @@ module.exports = (api, { config, lintOn = [] }, _, invoking) => {
 const applyTS = module.exports.applyTS = api => {
   api.extendPackage({
     eslintConfig: {
-      extends: ['typescript', 'typescript/react'],
+      extends: ['@vicli/typescript'],
       parserOptions: {
         parser: '@typescript-eslint/parser',
         ecmaFeatures: {
@@ -134,8 +134,7 @@ const applyTS = module.exports.applyTS = api => {
       plugins: ['@typescript-eslint']
     },
     devDependencies: {
-      '@typescript-eslint/parser': '^1.11.0',
-      '@typescript-eslint/eslint-plugin': '^1.11.0'
+      '@vicli/eslint-config-typescript': '^0.0.0'
     }
   })
 }
