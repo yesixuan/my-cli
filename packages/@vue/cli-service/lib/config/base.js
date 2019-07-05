@@ -66,14 +66,14 @@ module.exports = (api, options) => {
     // js is handled by cli-plugin-babel ---------------------------------------
 
     // vue-loader --------------------------------------------------------------
-    const vueLoaderCacheConfig = api.genCacheConfig('vue-loader', {
+    /*const vueLoaderCacheConfig = api.genCacheConfig('vue-loader', {
       'vue-loader': require('vue-loader/package.json').version,
-      /* eslint-disable-next-line node/no-extraneous-require */
+      /!* eslint-disable-next-line node/no-extraneous-require *!/
       '@vue/component-compiler-utils': require('@vue/component-compiler-utils/package.json').version,
       'vue-template-compiler': require('vue-template-compiler/package.json').version
-    })
+    })*/
 
-    webpackConfig.module
+    /*webpackConfig.module
       .rule('vue')
         .test(/\.vue$/)
         .use('cache-loader')
@@ -86,11 +86,11 @@ module.exports = (api, options) => {
             compilerOptions: {
               preserveWhitespace: false
             }
-          }, vueLoaderCacheConfig))
+          }, vueLoaderCacheConfig))*/
 
-    webpackConfig
+    /*webpackConfig
       .plugin('vue-loader')
-      .use(require('vue-loader/lib/plugin'))
+      .use(require('vue-loader/lib/plugin'))*/
 
     // static assets -----------------------------------------------------------
 

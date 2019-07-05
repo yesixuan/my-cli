@@ -50,7 +50,7 @@ async function addRouter (context) {
   }])
   invoke.runGenerator(context, {
     id: 'core:router',
-    apply: loadModule('@vue/cli-service/generator/router', context),
+    apply: loadModule('@vicli/cli-service/generator/router', context),
     options
   })
 }
@@ -58,7 +58,7 @@ async function addRouter (context) {
 async function addVuex (context) {
   invoke.runGenerator(context, {
     id: 'core:vuex',
-    apply: loadModule('@vue/cli-service/generator/vuex', context)
+    apply: loadModule('@vue/vicli-service/generator/vuex', context)
   })
 }
 

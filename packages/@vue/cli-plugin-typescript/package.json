@@ -1,6 +1,6 @@
 {
   "name": "@vicli/cli-plugin-typescript",
-  "version": "0.0.0",
+  "version": "0.0.30",
   "description": "typescript plugin for vicli-cli",
   "main": "index.js",
   "repository": {
@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@types/webpack-env": "^1.13.9",
-    "@vue/cli-shared-utils": "^3.8.0",
+    "@vicli/cli-shared-utils": "^0.0.1",
     "fork-ts-checker-webpack-plugin": "^0.5.2",
     "globby": "^9.2.0",
     "ts-loader": "^5.3.3",
@@ -31,11 +31,12 @@
     "yorkie": "^2.0.0"
   },
   "peerDependencies": {
-    "typescript": ">=2"
+    "typescript": ">=2",
+    "@babel/preset-typescript": ">=7"
   },
   "devDependencies": {
     "@types/chai": "^4.1.0",
     "@types/jest": "^23.1.4",
-    "@types/mocha": "^5.2.6",
+    "@types/mocha": "^5.2.6"
   }
 }

@@ -4,13 +4,13 @@ module.exports = (api, options = {}) => {
   // api.injectRootOptions(api.entryFile, `router`)
   api.extendPackage({
     dependencies: {
-      'vue-router': '^3.0.3',
       'react-router-dom': "^5.0.1",
     }
   })
   api.render('./template', {
     historyMode: options.routerHistoryMode,
-    doesCompile: api.hasPlugin('babel') || api.hasPlugin('typescript')
+    doesCompile: api.hasPlugin('babel') || api.hasPlugin('typescript'),
+    isTs: api.hasPlugin('typescript')
   })
 
   if (api.invoking) {
@@ -21,8 +21,8 @@ module.exports = (api, options = {}) => {
 import React from 'react'
 import { BrowserRouter, Route, Redirect, Switch, Link } from 'react-router-dom'
 
-import Index from './views/Index.jsx'
-import Demo from './views/Demo.jsx'
+import Index from './views/Index'
+import Demo from './views/Demo'
 import './App.css'
 
 const App = () => <>
@@ -45,7 +45,7 @@ export default App
 
     if (api.hasPlugin('typescript')) {
       /* eslint-disable-next-line node/no-extraneous-require */
-      const convertFiles = require('@vue/cli-plugin-typescript/generator/convert')
+      const convertFiles = require('@vicli/cli-plugin-typescript/generator/convert')
       convertFiles(api)
     }
   }

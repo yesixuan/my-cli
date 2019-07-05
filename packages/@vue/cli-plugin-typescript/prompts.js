@@ -43,6 +43,6 @@ const prompts = module.exports = [
 // below, so this is a temporary compatibility hack until we release stable.
 // TODO just export the function in 3.0.0
 module.exports.getPrompts = pkg => {
-  prompts[2].when = () => !('@vue/cli-plugin-eslint' in (pkg.devDependencies || {}))
+  prompts[2].when = () => !('@vicli/cli-plugin-eslint' in (pkg.devDependencies || {}))
   return prompts
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Index = () => (
+const Index<%= isTs ? `: React.FC` : `` %> = () => (
   <div className="App">
     <header className="App-header">
       <h3>Index page</h3>

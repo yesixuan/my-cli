@@ -93,7 +93,7 @@ module.exports = class Generator {
     // exit messages
     this.exitLogs = []
 
-    const cliService = plugins.find(p => p.id === '@vue/cli-service')
+    const cliService = plugins.find(p => p.id === '@vicli/cli-service')
     const rootOptions = cliService
       ? cliService.options
       : inferRootOptions(pkg)

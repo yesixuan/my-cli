@@ -2,6 +2,7 @@ module.exports = (api, { tsLint = false } = {}) => {
   // delete all js files that have a ts file of the same name
   // and simply rename other js files to ts
   const jsRE = /\.js$/
+  const jsxRE = /\.jsx$/
   const excludeRE = /^tests\/e2e\/|(\.config|rc)\.js$/
   const convertLintFlags = require('../lib/convertLintFlags')
   api.postProcessFiles(files => {
@@ -14,6 +15,17 @@ module.exports = (api, { tsLint = false } = {}) => {
             content = convertLintFlags(content)
           }
           files[tsFile] = content
+        }
+        delete files[file]
+      }
+      if (jsxRE.test(file) && !excludeRE.test(file)) {
+        const tsxFile = file.replace(jsRE, '.tsx')
+        if (!files[tsxFile]) {
+          let content = files[file]
+          if (tsLint) {
+            content = convertLintFlags(content)
+          }
+          files[tsxFile] = content
         }
         delete files[file]
       }

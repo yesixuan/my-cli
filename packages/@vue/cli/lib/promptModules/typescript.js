@@ -8,15 +8,15 @@ module.exports = cli => {
     plugins: ['typescript']
   })
 
-  cli.injectPrompt({
-    name: 'tsClassComponent',
-    when: answers => answers.features.includes('ts'),
-    type: 'confirm',
-    message: 'Use class-style component syntax?',
-    description: 'Use the @Component decorator on classes.',
-    link: 'https://vuejs.org/v2/guide/typescript.html#Class-Style-Vue-Components',
-    default: true
-  })
+  // cli.injectPrompt({
+  //   name: 'tsClassComponent',
+  //   when: answers => answers.features.includes('ts'),
+  //   type: 'confirm',
+  //   message: 'Use class-style component syntax?',
+  //   description: 'Use the @Component decorator on classes.',
+  //   link: 'https://vuejs.org/v2/guide/typescript.html#Class-Style-Vue-Components',
+  //   default: true
+  // })
 
   cli.injectPrompt({
     name: 'useTsWithBabel',
@@ -39,7 +39,7 @@ module.exports = cli => {
       if (answers.useTsWithBabel) {
         tsOptions.useTsWithBabel = true
       }
-      options.plugins['@vue/cli-plugin-typescript'] = tsOptions
+      options.plugins['@vicli/cli-plugin-typescript'] = tsOptions
     }
   })
 }

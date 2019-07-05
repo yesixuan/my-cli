@@ -1,7 +1,6 @@
 module.exports = (api, options) => {
   api.render('./template', {
-    doesCompile: api.hasPlugin('babel') || api.hasPlugin('typescript'),
-    options,
+    doesCompile: api.hasPlugin('babel') || api.hasPlugin('typescript')
   })
 
   console.log('**********************************************************')
@@ -14,12 +13,8 @@ module.exports = (api, options) => {
       'build': 'vicli-cli-service build'
     },
     dependencies: {
-      'vue': '^2.6.10',
       'react': '^16.8.4',
       'react-dom': '^16.8.4'
-    },
-    devDependencies: {
-      'vue-template-compiler': '^2.6.10'
     },
     'postcss': {
       'plugins': {

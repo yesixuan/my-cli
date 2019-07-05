@@ -28,7 +28,7 @@ class GeneratorAPI {
     this.rootOptions = rootOptions
 
     this.pluginsData = generator.plugins
-      .filter(({ id }) => id !== `@vue/cli-service`)
+      .filter(({ id }) => id !== `@vicli/cli-service`)
       .map(({ id }) => ({
         name: toShortPluginId(id),
         link: getPluginLink(id)
