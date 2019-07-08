@@ -3,18 +3,16 @@ module.exports = (api, options) => {
     doesCompile: api.hasPlugin('babel') || api.hasPlugin('typescript')
   })
 
-  console.log('**********************************************************')
-  console.log(JSON.stringify(options, null, '  '))
-  console.log('**********************************************************')
-
   api.extendPackage({
     scripts: {
       'serve': 'vicli-cli-service serve',
       'build': 'vicli-cli-service build'
     },
     dependencies: {
-      'react': '^16.8.4',
-      'react-dom': '^16.8.4'
+      'react': '^16.8.6',
+      'react-dom': '^16.8.4',
+      // 开发环境下使用 @hot-loader/react-dom 代替 react-dom 以实现热更新
+      '@hot-loader/react-dom': '^16.8.6'
     },
     'postcss': {
       'plugins': {

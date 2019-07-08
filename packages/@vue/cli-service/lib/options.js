@@ -9,6 +9,7 @@ const schema = createSchema(joi => joi.object({
   filenameHashing: joi.boolean(),
   runtimeCompiler: joi.boolean(),
   transpileDependencies: joi.array(),
+  transpileDependencies: joi.array(),
   productionSourceMap: joi.boolean(),
   parallel: joi.alternatives().try([
     joi.boolean(),

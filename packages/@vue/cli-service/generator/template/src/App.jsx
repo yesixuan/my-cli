@@ -20,15 +20,15 @@ import Demo from './views/Demo'
 import './App.css'
 
 const App = () => <>
-<<%= rootOptions.routerHistoryMode ? `BrowserRouter` : `HashRouter` %>>
-  <Link to='/index'>Index</Link>
-  <br />
-  <Link to='/demo'>Demo</Link>
-  <Switch>
-    <Route path='/' exact component={Index}/>
-    <Route path='/demo' component={Demo}/>
-    <Redirect to='/' />
-  </Switch>
+  <<%= rootOptions.routerHistoryMode ? `BrowserRouter` : `HashRouter` %>>
+    <Link to='/index'>Index</Link>
+    <br />
+    <Link to='/demo'>Demo</Link>
+    <Switch>
+      <Route path='/' exact component={Index}/>
+      <Route path='/demo' component={Demo}/>
+      <Redirect to='/' />
+    </Switch>
   </<%= rootOptions.routerHistoryMode ? `BrowserRouter` : `HashRouter` %>>
 </>
 

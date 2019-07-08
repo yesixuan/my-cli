@@ -29,7 +29,7 @@ module.exports = (api, options) => {
       .mode('development')
       .context(api.service.context)
       .entry('app')
-        .add('./src/main.js')
+        .add('./src/main.jsx')
         .end()
       .output
         .path(api.resolve(options.outputDir))
@@ -38,7 +38,7 @@ module.exports = (api, options) => {
 
     webpackConfig.resolve
       .extensions
-        .merge(['.mjs', '.js', '.jsx', '.vue', '.json', '.wasm'])
+        .merge(['.mjs', '.js', '.jsx', '.json', '.wasm'])
         .end()
       .modules
         .add('node_modules')
@@ -47,12 +47,6 @@ module.exports = (api, options) => {
         .end()
       .alias
         .set('@', api.resolve('src'))
-        .set(
-          'vue$',
-          options.runtimeCompiler
-            ? 'vue/dist/vue.esm.js'
-            : 'vue/dist/vue.runtime.esm.js'
-        )
 
     webpackConfig.resolveLoader
       .modules

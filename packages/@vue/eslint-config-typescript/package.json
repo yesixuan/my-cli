@@ -1,6 +1,6 @@
 {
   "name": "@vicli/eslint-config-typescript",
-  "version": "0.0.0",
+  "version": "0.0.3",
   "description": "eslint-config-typescript for vicli-cli",
   "main": "index.js",
   "publishConfig": {

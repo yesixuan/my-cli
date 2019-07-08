@@ -124,7 +124,8 @@ module.exports = (api, { config, lintOn = [] }, _, invoking) => {
 const applyTS = module.exports.applyTS = api => {
   api.extendPackage({
     eslintConfig: {
-      extends: ['@vicli/typescript'],
+      // vic 加上这个扩展之后，时而会报许多没有配置的 lint 错误
+      // extends: ['@vicli/typescript'],
       parserOptions: {
         parser: '@typescript-eslint/parser',
         ecmaFeatures: {
@@ -134,7 +135,7 @@ const applyTS = module.exports.applyTS = api => {
       plugins: ['@typescript-eslint']
     },
     devDependencies: {
-      '@vicli/eslint-config-typescript': '^0.0.0'
+      // '@vicli/eslint-config-typescript': '^0.0.3'
     }
   })
 }

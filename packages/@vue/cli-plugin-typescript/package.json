@@ -1,6 +1,6 @@
 {
   "name": "@vicli/cli-plugin-typescript",
-  "version": "0.0.30",
+  "version": "0.0.33",
   "description": "typescript plugin for vicli-cli",
   "main": "index.js",
   "repository": {
@@ -28,6 +28,7 @@
     "ts-loader": "^5.3.3",
     "tslint": "^5.15.0",
     "webpack": ">=4 < 4.29",
+    "react-hot-loader": "^4.12.5",
     "yorkie": "^2.0.0"
   },
   "peerDependencies": {

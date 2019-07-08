@@ -7,7 +7,8 @@ module.exports = api => {
 
   api.extendPackage({
     babel: {
-      presets: ['react-app']
+      presets: ['react-app'],
+      plugins: ['react-hot-loader/babel']
     },
     dependencies: {
       'core-js': '^2.6.5'

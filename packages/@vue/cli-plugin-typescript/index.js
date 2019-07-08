@@ -22,8 +22,22 @@ module.exports = (api, options) => {
 
     // add a loader to both *.ts & vue<lang="ts">
     const addLoader = ({ loader, options }) => {
-      tsRule.use(loader).loader(loader).options(options)
-      tsxRule.use(loader).loader(loader).options(options)
+      tsRule
+        .exclude
+          .add(filepath => {
+            // Don't transpile node_modules
+            return /node_modules/.test(filepath)
+          })
+          .end()
+        .use(loader).loader(loader).options(options)
+      tsxRule
+        .exclude
+        .add(filepath => {
+          // Don't transpile node_modules
+          return /node_modules/.test(filepath)
+        })
+        .end()
+        .use(loader).loader(loader).options(options)
     }
 
     addLoader({

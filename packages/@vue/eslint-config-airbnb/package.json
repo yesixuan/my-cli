@@ -1,7 +1,7 @@
 {
-  "name": "@vue/eslint-config-airbnb",
-  "version": "4.0.0",
-  "description": "eslint-config-airbnb for vue-cli",
+  "name": "@vicli/eslint-config-airbnb",
+  "version": "0.0.0",
+  "description": "eslint-config-airbnb for vicli-cli",
   "main": "index.js",
   "publishConfig": {
     "access": "public"
@@ -12,10 +12,10 @@
     "directory": "packages/@vue/eslint-config-airbnb"
   },
   "keywords": [
-    "vue",
+    "vicli",
     "cli"
   ],
-  "author": "Evan You",
+  "author": "Vic",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/vuejs/vue-cli/issues"

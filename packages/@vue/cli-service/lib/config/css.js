@@ -78,14 +78,6 @@ module.exports = (api, options) => {
     function createCSSRule (lang, test, loader, options) {
       const baseRule = webpackConfig.module.rule(lang).test(test)
 
-      // rules for <style lang="module">
-      const vueModulesRule = baseRule.oneOf('vue-modules').resourceQuery(/module/)
-      applyLoaders(vueModulesRule, true)
-
-      // rules for <style>
-      const vueNormalRule = baseRule.oneOf('vue').resourceQuery(/\?vue/)
-      applyLoaders(vueNormalRule, false)
-
       // rules for *.module.* files
       const extModulesRule = baseRule.oneOf('normal-modules').test(/\.module\.\w+$/)
       applyLoaders(extModulesRule, true)
@@ -105,12 +97,12 @@ module.exports = (api, options) => {
             })
         } else {
           rule
-            .use('vue-style-loader')
-            .loader('vue-style-loader')
-            .options({
-              sourceMap,
-              shadowMode
-            })
+            .use('style-loader')
+            .loader('style-loader')
+            // .options({
+            //   sourceMap,
+            //   shadowMode
+            // })
         }
 
         const cssLoaderOptions = Object.assign({
