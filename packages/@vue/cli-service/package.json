@@ -1,6 +1,6 @@
 {
   "name": "@vicli/cli-service",
-  "version": "0.0.49",
+  "version": "0.0.50",
   "description": "local service for vicli-cli projects",
   "main": "lib/Service.js",
   "typings": "types/index.d.ts",

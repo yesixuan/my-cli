@@ -6,7 +6,7 @@ const { clearConsole } = require('@vicli/cli-shared-utils')
 exports.generateTitle = async function (checkUpdate) {
   const { current, latest } = await getVersions()
 
-  let title = chalk.bold.blue(`Vue CLI v${current}`)
+  let title = chalk.bold.blue(`Vicli CLI v${current}`)
 
   if (process.env.VUE_CLI_TEST) {
     title += ' ' + chalk.blue.bold('TEST')

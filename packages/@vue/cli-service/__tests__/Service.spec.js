@@ -1,5 +1,5 @@
 jest.mock('fs')
-jest.mock('/vue.config.js', () => ({ lintOnSave: false }), { virtual: true })
+jest.mock('/vicli.config.js', () => ({ lintOnSave: false }), { virtual: true })
 jest.mock('vue-cli-plugin-foo', () => () => {}, { virtual: true })
 
 const fs = require('fs')

@@ -1,6 +1,6 @@
 {
   "name": "@vicli/cli",
-  "version": "0.0.7",
+  "version": "0.0.9",
   "description": "Command line interface for rapid React development",
   "bin": {
     "vicli": "bin/vicli.js"
