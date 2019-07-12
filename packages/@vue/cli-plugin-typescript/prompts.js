@@ -4,22 +4,22 @@
 const { chalk, hasGit } = require('@vue/cli-shared-utils')
 
 const prompts = module.exports = [
-  {
+  /*{
     name: `classComponent`,
     type: `confirm`,
     message: `Use class-style component syntax?`,
     default: true
-  },
-  {
+  },*/
+  /*{
     name: `useTsWithBabel`,
     type: `confirm`,
     message: 'Use Babel alongside TypeScript (required for modern mode, auto-detected polyfills, transpiling JSX)?'
-  },
-  {
+  },*/
+  /*{
     name: `lint`,
     type: `confirm`,
     message: `Use TSLint?`
-  },
+  },*/
   {
     name: `lintOn`,
     type: `checkbox`,
