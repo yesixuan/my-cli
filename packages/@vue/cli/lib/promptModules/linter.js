@@ -19,7 +19,8 @@ module.exports = cli => {
     message: 'Pick a linter / formatter config:',
     description: 'Checking code errors and enforcing an homogeoneous code style is recommended.',
     choices: answers => [
-      ...(
+      // 去除使用 tslint 的选项
+      /* ...(
         answers.features.includes('ts')
           ? [{
             name: `TSLint`,
@@ -27,7 +28,7 @@ module.exports = cli => {
             short: 'TSLint'
           }]
           : []
-      ),
+      ), */
       {
         name: 'ESLint with error prevention only',
         value: 'base',

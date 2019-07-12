@@ -281,6 +281,12 @@ module.exports = class Creator extends EventEmitter {
     if (answers.save && answers.saveName) {
       savePreset(answers.saveName, preset)
     }
+    // babel 变为预置必选项
+    preset.plugins['@vicli/cli-plugin-babel'] = {}
+
+    console.log('**********************************************')
+    console.log('preset', preset)
+    console.log('**********************************************')
 
     debug('vue-cli:preset')(preset)
     return preset

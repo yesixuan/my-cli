@@ -3,7 +3,6 @@ module.exports = (api, {
   tsLint,
   lintOn = []
 }, { router }, invoking) => {
-
   if (typeof lintOn === 'string') {
     lintOn = lintOn.split(',')
   }
@@ -15,11 +14,11 @@ module.exports = (api, {
         allExtensions: true
       }]],
       plugins: [
-        ["@babel/plugin-proposal-decorators", { legacy: true }],
-        ["@babel/plugin-proposal-class-properties", { loose: true }]
+        ['@babel/plugin-proposal-decorators', { legacy: true }],
+        ['@babel/plugin-proposal-class-properties', { loose: true }]
       ]
-    },
-    devDependencies: {
+    }
+    /* devDependencies: {
       'typescript': '^3.4.3',
       'eslint': '^5.16.0',
       '@types/node': '12.0.10',
@@ -28,16 +27,16 @@ module.exports = (api, {
       '@babel/preset-typescript': '^7.3.3',
       '@babel/plugin-proposal-class-properties': '^7.4.4',
       '@babel/plugin-proposal-object-rest-spread': '^7.4.4'
-    }
+    }*/
   })
 
-  if (router) {
+  /* if (router) {
     api.extendPackage({
       dependencies: {
         '@types/react-router-dom': '^4.3.4'
       }
     })
-  }
+  }*/
 
   if (tsLint) {
     api.extendPackage({
