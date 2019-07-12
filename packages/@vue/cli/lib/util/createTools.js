@@ -1,13 +1,13 @@
 exports.getPromptModules = () => {
   return [
-    'babel',
+    // 'babel',
     'typescript',
     'pwa',
     'router',
-    'vuex',
+    // 'vuex',
     'cssPreprocessors',
-    'linter',
-    'unit',
-    'e2e'
+    'linter'
+    // 'unit',
+    // 'e2e'
   ].map(file => require(`../promptModules/${file}`))
 }

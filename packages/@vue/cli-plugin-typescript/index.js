@@ -10,7 +10,7 @@ module.exports = (api, options) => {
     if (!options.pages) {
       config.entry('app')
         .clear()
-        .add('./src/main.ts')
+        .add('./src/main.tsx')
     }
 
     config.resolve
@@ -22,17 +22,35 @@ module.exports = (api, options) => {
 
     // add a loader to both *.ts & vue<lang="ts">
     const addLoader = ({ loader, options }) => {
-      tsRule.use(loader).loader(loader).options(options)
-      tsxRule.use(loader).loader(loader).options(options)
+      tsRule
+        .exclude
+          .add(filepath => {
+            // Don't transpile node_modules
+            return /node_modules/.test(filepath)
+          })
+          .end()
+        .use(loader).loader(loader).options(options)
+      tsxRule
+        .exclude
+        .add(filepath => {
+          // Don't transpile node_modules
+          return /node_modules/.test(filepath)
+        })
+        .end()
+        .use(loader).loader(loader).options(options)
     }
 
     addLoader({
       loader: 'cache-loader',
-      options: api.genCacheConfig('ts-loader', {
-        'ts-loader': require('ts-loader/package.json').version,
-        'typescript': require('typescript/package.json').version,
-        modern: !!process.env.VUE_CLI_MODERN_BUILD
-      }, 'tsconfig.json')
+      options: api.genCacheConfig('babel-loader', {
+        'babel-loader': require('@babel/core/package.json').version,
+        'babel-loader': require('babel-loader/package.json').version,
+        modern: !!process.env.VUE_CLI_MODERN_BUILD,
+        browserslist: api.service.pkg.browserslist
+      }, [
+        'babel.config.js',
+        '.browserslistrc'
+      ])
     })
 
     if (useThreads) {
@@ -50,7 +68,7 @@ module.exports = (api, options) => {
         loader: 'babel-loader'
       })
     }
-    addLoader({
+    /*addLoader({
       loader: 'ts-loader',
       options: {
         transpileOnly: true,
@@ -58,14 +76,14 @@ module.exports = (api, options) => {
         // https://github.com/TypeStrong/ts-loader#happypackmode-boolean-defaultfalse
         happyPackMode: useThreads
       }
-    })
+    })*/
     // make sure to append TSX suffix
-    tsxRule.use('ts-loader').loader('ts-loader').tap(options => {
+    /*tsxRule.use('ts-loader').loader('ts-loader').tap(options => {
       options = Object.assign({}, options)
       delete options.appendTsSuffixTo
       options.appendTsxSuffixTo = ['\\.vue$']
       return options
-    })
+    })*/
 
     if (!process.env.VUE_CLI_TEST) {
       // this plugin does not play well with jest + cypress setup (tsPluginE2e.spec.js) somehow
@@ -73,9 +91,9 @@ module.exports = (api, options) => {
       config
         .plugin('fork-ts-checker')
           .use(require('fork-ts-checker-webpack-plugin'), [{
-            vue: true,
-            tslint: options.lintOnSave !== false && fs.existsSync(api.resolve('tslint.json')),
-            formatter: 'codeframe',
+            // vue: true,
+            // tslint: options.lintOnSave !== false && fs.existsSync(api.resolve('tslint.json')),
+            // formatter: 'codeframe',
             // https://github.com/TypeStrong/ts-loader#happypackmode-boolean-defaultfalse
             checkSyntacticErrors: useThreads
           }])

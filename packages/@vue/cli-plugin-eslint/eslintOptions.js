@@ -2,10 +2,11 @@ exports.config = api => {
   const config = {
     root: true,
     env: { node: true },
-    extends: ['plugin:vue/essential'],
+    extends: ['react-app'],
     rules: {
       'no-console': makeJSOnlyValue(`process.env.NODE_ENV === 'production' ? 'error' : 'off'`),
-      'no-debugger': makeJSOnlyValue(`process.env.NODE_ENV === 'production' ? 'error' : 'off'`)
+      'no-debugger': makeJSOnlyValue(`process.env.NODE_ENV === 'production' ? 'error' : 'off'`),
+      'semicolon': 'off'
     }
   }
   if (!api.hasPlugin('typescript')) {

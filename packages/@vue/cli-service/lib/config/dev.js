@@ -10,6 +10,10 @@ module.exports = (api, options) => {
         .plugin('hmr')
           .use(require('webpack/lib/HotModuleReplacementPlugin'))
 
+      webpackConfig.resolve
+        .alias
+        .set('react-dom$', '@hot-loader/react-dom')
+
       // https://github.com/webpack/webpack/issues/6642
       // https://github.com/vuejs/vue-cli/issues/3539
       webpackConfig

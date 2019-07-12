@@ -1,7 +1,7 @@
 {
-  "name": "@vue/cli-plugin-eslint",
-  "version": "3.8.0",
-  "description": "eslint plugin for vue-cli",
+  "name": "@vicli/cli-plugin-eslint",
+  "version": "0.0.18",
+  "description": "eslint plugin for vicli-cli",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -9,11 +9,11 @@
     "directory": "packages/@vue/cli-plugin-eslint"
   },
   "keywords": [
-    "vue",
+    "vicli",
     "cli",
     "eslint"
   ],
-  "author": "Evan You",
+  "author": "Vic",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/vuejs/vue-cli/issues"
@@ -23,7 +23,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@vue/cli-shared-utils": "^3.8.0",
+    "@vicli/cli-shared-utils": "^0.0.1",
     "babel-eslint": "^10.0.1",
     "eslint-loader": "^2.1.2",
     "globby": "^9.2.0",
@@ -31,7 +31,6 @@
     "yorkie": "^2.0.0"
   },
   "optionalDependencies": {
-    "eslint": "^4.19.1",
-    "eslint-plugin-vue": "^4.7.1"
+    "eslint": ">= 1.6.0"
   }
 }

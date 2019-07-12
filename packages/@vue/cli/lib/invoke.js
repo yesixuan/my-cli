@@ -19,7 +19,7 @@ const {
   stopSpinner,
   resolvePluginId,
   loadModule
-} = require('@vue/cli-shared-utils')
+} = require('@vicli/cli-shared-utils')
 
 async function readFiles (context) {
   const files = await globby(['**'], {

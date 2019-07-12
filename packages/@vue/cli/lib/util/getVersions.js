@@ -42,7 +42,7 @@ module.exports = async function getVersions () {
 // so that it is available immediately next time
 async function getAndCacheLatestVersion (cached) {
   const getPackageVersion = require('./getPackageVersion')
-  const res = await getPackageVersion('vue-cli-version-marker', 'latest')
+  const res = await getPackageVersion('vicli-cli-version-marker', 'latest')
   if (res.statusCode === 200) {
     const { version } = res.body
     if (semver.valid(version) && version !== cached) {

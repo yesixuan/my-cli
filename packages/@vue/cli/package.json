@@ -1,6 +1,6 @@
 {
   "name": "@vicli/cli",
-  "version": "0.0.2",
+  "version": "0.0.12",
   "description": "Command line interface for rapid React development",
   "bin": {
     "vicli": "bin/vicli.js"
@@ -24,7 +24,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@vue/cli-shared-utils": "^3.8.0",
+    "@vicli/cli-shared-utils": "^0.0.1",
     "@vue/cli-ui": "^3.8.4",
     "@vue/cli-ui-addon-webpack": "^3.8.4",
     "@vue/cli-ui-addon-widgets": "^3.8.4",

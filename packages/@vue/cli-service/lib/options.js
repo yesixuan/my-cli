@@ -1,4 +1,4 @@
-const { createSchema, validate } = require('@vue/cli-shared-utils')
+const { createSchema, validate } = require('@vicli/cli-shared-utils')
 
 const schema = createSchema(joi => joi.object({
   baseUrl: joi.string().allow(''),
@@ -8,6 +8,7 @@ const schema = createSchema(joi => joi.object({
   indexPath: joi.string(),
   filenameHashing: joi.boolean(),
   runtimeCompiler: joi.boolean(),
+  transpileDependencies: joi.array(),
   transpileDependencies: joi.array(),
   productionSourceMap: joi.boolean(),
   parallel: joi.alternatives().try([

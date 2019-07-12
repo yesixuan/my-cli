@@ -1,11 +1,11 @@
 const fs = require('fs')
 const cloneDeep = require('lodash.clonedeep')
 const { getRcPath } = require('./util/rcPath')
-const { exit } = require('@vue/cli-shared-utils/lib/exit')
-const { error } = require('@vue/cli-shared-utils/lib/logger')
-const { createSchema, validate } = require('@vue/cli-shared-utils/lib/validate')
+const { exit } = require('@vicli/cli-shared-utils/lib/exit')
+const { error } = require('@vicli/cli-shared-utils/lib/logger')
+const { createSchema, validate } = require('@vicli/cli-shared-utils/lib/validate')
 
-const rcPath = exports.rcPath = getRcPath('.vuerc')
+const rcPath = exports.rcPath = getRcPath('.viclirc')
 
 const presetSchema = createSchema(joi => joi.object().keys({
   bare: joi.boolean(),
@@ -68,7 +68,7 @@ exports.loadOptions = () => {
     } catch (e) {
       error(
         `Error loading saved preferences: ` +
-        `~/.vuerc may be corrupted or have syntax errors. ` +
+        `~/.viclirc may be corrupted or have syntax errors. ` +
         `Please fix/delete it and re-run vue-cli in manual mode.\n` +
         `(${e.message})`,
       )
@@ -76,7 +76,7 @@ exports.loadOptions = () => {
     }
     validate(cachedOptions, schema, () => {
       error(
-        `~/.vuerc may be outdated. ` +
+        `~/.viclirc may be outdated. ` +
         `Please delete it and re-run vue-cli in manual mode.`
       )
     })

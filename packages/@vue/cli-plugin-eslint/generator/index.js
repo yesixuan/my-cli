@@ -10,7 +10,7 @@ module.exports = (api, { config, lintOn = [] }, _, invoking) => {
 
   const pkg = {
     scripts: {
-      lint: 'vue-cli-service lint'
+      lint: 'vicli-cli-service lint'
     },
     eslintConfig,
     // TODO:
@@ -20,7 +20,7 @@ module.exports = (api, { config, lintOn = [] }, _, invoking) => {
     devDependencies: {
       'babel-eslint': '^10.0.1',
       'eslint': '^5.16.0',
-      'eslint-plugin-vue': '^5.0.0'
+      'eslint-plugin-react-app': '5.0.1'
     }
   }
 
@@ -40,21 +40,35 @@ module.exports = (api, { config, lintOn = [] }, _, invoking) => {
   }
 
   if (config === 'airbnb') {
-    eslintConfig.extends.push('@vue/airbnb')
+    eslintConfig.extends.push('airbnb')
+    eslintConfig.settings = {
+      'import/resolver': {
+        webpack: {
+          config: require.resolve('@vicli/cli-service/webpack.config.js')
+        }
+      },
+      'import/extensions': [
+        '.js',
+        '.jsx',
+        '.mjs',
+        '.ts',
+        '.tsx'
+      ]
+    }
     Object.assign(pkg.devDependencies, {
-      '@vue/eslint-config-airbnb': '^4.0.0'
+      'eslint-config-airbnb': '^17.1.1'
     })
     injectEditorConfig('airbnb')
   } else if (config === 'standard') {
-    eslintConfig.extends.push('@vue/standard')
+    eslintConfig.extends.push('@vicli/standard')
     Object.assign(pkg.devDependencies, {
-      '@vue/eslint-config-standard': '^4.0.0'
+      '@vicli/eslint-config-standard': '^0.0.0'
     })
     injectEditorConfig('standard')
   } else if (config === 'prettier') {
-    eslintConfig.extends.push('@vue/prettier')
+    eslintConfig.extends.push('@vicli/prettier')
     Object.assign(pkg.devDependencies, {
-      '@vue/eslint-config-prettier': '^4.0.1'
+      '@vicli/eslint-config-prettier': '^0.0.1'
     })
     // prettier & default config do not have any style rules
     // so no need to generate an editorconfig file
@@ -77,7 +91,7 @@ module.exports = (api, { config, lintOn = [] }, _, invoking) => {
       'pre-commit': 'lint-staged'
     }
     pkg['lint-staged'] = {
-      '*.{js,vue}': ['vue-cli-service lint', 'git add']
+      '*.{js,vue}': ['vicli-cli-service lint', 'git add']
     }
   }
 
@@ -110,13 +124,18 @@ module.exports = (api, { config, lintOn = [] }, _, invoking) => {
 const applyTS = module.exports.applyTS = api => {
   api.extendPackage({
     eslintConfig: {
-      extends: ['@vue/typescript'],
+      // vic 加上这个扩展之后，时而会报许多没有配置的 lint 错误
+      // extends: ['@vicli/typescript'],
       parserOptions: {
-        parser: '@typescript-eslint/parser'
-      }
+        parser: '@typescript-eslint/parser',
+        ecmaFeatures: {
+          "jsx": true
+        }
+      },
+      plugins: ['@typescript-eslint']
     },
     devDependencies: {
-      '@vue/eslint-config-typescript': '^4.0.0'
+      // '@vicli/eslint-config-typescript': '^0.0.3'
     }
   })
 }

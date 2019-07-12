@@ -9,12 +9,10 @@ module.exports = (api, options) => {
       'build': 'vicli-cli-service build'
     },
     dependencies: {
-      'vue': '^2.6.10',
-      'react': '^16.8.4',
-      'react-dom': '^16.8.4'
-    },
-    devDependencies: {
-      'vue-template-compiler': '^2.6.10'
+      'react': '^16.8.6',
+      'react-dom': '^16.8.4',
+      // 开发环境下使用 @hot-loader/react-dom 代替 react-dom 以实现热更新
+      '@hot-loader/react-dom': '^16.8.6'
     },
     'postcss': {
       'plugins': {

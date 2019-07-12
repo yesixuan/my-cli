@@ -1,6 +1,6 @@
 module.exports = cli => {
   const chalk = require('chalk')
-  const { hasGit } = require('@vue/cli-shared-utils')
+  const { hasGit } = require('@vicli/cli-shared-utils')
 
   cli.injectFeature({
     name: 'Linter / Formatter',
@@ -19,7 +19,8 @@ module.exports = cli => {
     message: 'Pick a linter / formatter config:',
     description: 'Checking code errors and enforcing an homogeoneous code style is recommended.',
     choices: answers => [
-      ...(
+      // 去除使用 tslint 的选项
+      /* ...(
         answers.features.includes('ts')
           ? [{
             name: `TSLint`,
@@ -27,7 +28,7 @@ module.exports = cli => {
             short: 'TSLint'
           }]
           : []
-      ),
+      ), */
       {
         name: 'ESLint with error prevention only',
         value: 'base',
@@ -71,7 +72,7 @@ module.exports = cli => {
 
   cli.onPromptComplete((answers, options) => {
     if (answers.features.includes('linter') && answers.eslintConfig !== 'tslint') {
-      options.plugins['@vue/cli-plugin-eslint'] = {
+      options.plugins['@vicli/cli-plugin-eslint'] = {
         config: answers.eslintConfig,
         lintOn: answers.lintOn
       }

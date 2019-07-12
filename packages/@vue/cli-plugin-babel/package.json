@@ -1,6 +1,6 @@
 {
   "name": "@vicli/cli-plugin-babel",
-  "version": "0.0.3",
+  "version": "0.0.7",
   "description": "babel plugin for vicli-cli",
   "main": "index.js",
   "repository": {
@@ -26,7 +26,8 @@
     "babel-loader": "^8.0.5",
     "webpack": ">=4 < 4.29",
     "babel-plugin-named-asset-import": "^0.3.2",
-    "babel-preset-react-app": "^8.0.0"
+    "babel-preset-react-app": "^8.0.0",
+    "react-hot-loader": "^4.12.5"
   },
   "publishConfig": {
     "access": "public"

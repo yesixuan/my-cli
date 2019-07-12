@@ -10,9 +10,9 @@ module.exports = cli => {
 
   cli.onPromptComplete((answers, options) => {
     if (answers.features.includes('ts')) {
-      if (!answers.useTsWithBabel) {
-        return
-      }
+      // if (!answers.useTsWithBabel) {
+      //   return
+      // }
     } else if (!answers.features.includes('babel')) {
       return
     }

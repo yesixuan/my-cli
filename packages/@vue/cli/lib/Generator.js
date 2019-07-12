@@ -6,10 +6,10 @@ const writeFileTree = require('./util/writeFileTree')
 const inferRootOptions = require('./util/inferRootOptions')
 const normalizeFilePaths = require('./util/normalizeFilePaths')
 const runCodemod = require('./util/runCodemod')
-const { toShortPluginId, matchesPluginId } = require('@vue/cli-shared-utils')
+const { toShortPluginId, matchesPluginId } = require('@vicli/cli-shared-utils')
 const ConfigTransform = require('./ConfigTransform')
 
-const logger = require('@vue/cli-shared-utils/lib/logger')
+const logger = require('@vicli/cli-shared-utils/lib/logger')
 const logTypes = {
   log: logger.log,
   info: logger.info,
@@ -53,7 +53,7 @@ const defaultConfigTransforms = {
 const reservedConfigTransforms = {
   vue: new ConfigTransform({
     file: {
-      js: ['vue.config.js']
+      js: ['vicli.config.js']
     }
   })
 }
@@ -93,7 +93,7 @@ module.exports = class Generator {
     // exit messages
     this.exitLogs = []
 
-    const cliService = plugins.find(p => p.id === '@vue/cli-service')
+    const cliService = plugins.find(p => p.id === '@vicli/cli-service')
     const rootOptions = cliService
       ? cliService.options
       : inferRootOptions(pkg)
@@ -153,7 +153,7 @@ module.exports = class Generator {
       }
     } else {
       if (!process.env.VUE_CLI_TEST) {
-        // by default, always extract vue.config.js
+        // by default, always extract vicli.config.js
         extract('vue')
       }
       // always extract babel.config.js as this is the only way to apply

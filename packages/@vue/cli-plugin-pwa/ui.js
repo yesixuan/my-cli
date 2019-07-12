@@ -153,7 +153,7 @@ module.exports = api => {
           label: 'org.vue.pwa.suggestions.open-vue.label',
           handler () {
             const file = config.foundFiles.vue.path
-            const { launch } = require('@vue/cli-shared-utils')
+            const { launch } = require('@vicli/cli-shared-utils')
             launch(file)
             return {
               keep: true
@@ -170,7 +170,7 @@ module.exports = api => {
           label: 'org.vue.pwa.suggestions.open-manifest.label',
           handler () {
             const file = config.foundFiles.manifest.path
-            const { launch } = require('@vue/cli-shared-utils')
+            const { launch } = require('@vicli/cli-shared-utils')
             launch(file)
             return {
               keep: true

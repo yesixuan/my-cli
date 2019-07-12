@@ -1,5 +1,6 @@
 module.exports = {
   plugins: ['@typescript-eslint'],
+  extends: ['eslint-config-alloy/react', 'eslint-config-alloy/typescript'],
   // Prerequisite `eslint-plugin-vue`, being extended, sets
   // root property `parser` to `'vue-eslint-parser'`, which, for code parsing,
   // in turn delegates to the parser, specified in `parserOptions.parser`:
