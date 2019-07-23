@@ -55,6 +55,14 @@ module.exports = (api, { config, lintOn = [] }, _, invoking) => {
         '.tsx'
       ]
     }
+    api.extendPackage({
+      eslintConfig: {
+        rules: {
+          'react/jsx-filename-extension': [1, { 'extensions': ['.js', '.jsx', '.ts', '.tsx'] }],
+          'import/no-extraneous-dependencies': ['off', {'devDependencies': false, 'optionalDependencies': false, 'peerDependencies': false}],
+        }
+      }
+    })
     Object.assign(pkg.devDependencies, {
       'eslint-config-airbnb': '^17.1.1'
     })
@@ -129,7 +137,7 @@ const applyTS = module.exports.applyTS = api => {
       parserOptions: {
         parser: '@typescript-eslint/parser',
         ecmaFeatures: {
-          "jsx": true
+          'jsx': true
         }
       },
       plugins: ['@typescript-eslint']

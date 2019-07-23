@@ -1,6 +1,6 @@
 {
   "name": "@vicli/cli-plugin-eslint",
-  "version": "0.0.18",
+  "version": "0.0.25",
   "description": "eslint plugin for vicli-cli",
   "main": "index.js",
   "repository": {
@@ -26,6 +26,7 @@
     "@vicli/cli-shared-utils": "^0.0.1",
     "babel-eslint": "^10.0.1",
     "eslint-loader": "^2.1.2",
+    "eslint-import-resolver-webpack": "^0.11.1",
     "globby": "^9.2.0",
     "webpack": ">=4 < 4.29",
     "yorkie": "^2.0.0"
